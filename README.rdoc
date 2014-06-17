@@ -2,4 +2,5 @@
 Proyecto de Monitoreo de Termostato, hecho por 
 estudiantes de la Universidad Catolica "San Pablo" 
 de la carrera de Ingenieria de Sistemas. 
+Copia para examen "Luis Maldonado"
 ==================================================
