@@ -1,0 +1,26 @@
+<h1>Listing thermostat_models</h1>
+
+  <table class="table table-striped"><thead>
+      <tr class="info">
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @thermostat_models.each do |thermostat_model| %>
+      <tr>
+       <td><%= thermostat_model.name %></td>
+        <td><button><%= link_to 'Show', thermostat_model %></button></td>
+        <td><button><%= link_to 'Edit', edit_thermostat_model_path(thermostat_model) %></button></td>
+        <td><button><%= link_to 'Destroy', thermostat_model, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<button><%= link_to 'New Thermostat model', new_thermostat_model_path %></button>

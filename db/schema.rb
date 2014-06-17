@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140617021733) do
+ActiveRecord::Schema.define(version: 20140617183557) do
 
   create_table "alarms", force: true do |t|
     t.datetime "created_at"
@@ -68,6 +68,16 @@ ActiveRecord::Schema.define(version: 20140617021733) do
 
   add_index "locations", ["user_id"], name: "index_locations_on_user_id"
 
+  create_table "observations", force: true do |t|
+    t.string   "name"
+    t.integer  "like"
+    t.integer  "issue_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "observations", ["issue_id"], name: "index_observations_on_issue_id"
+
   create_table "schedules", force: true do |t|
     t.string   "day_week"
     t.string   "day_time"
@@ -79,6 +89,12 @@ ActiveRecord::Schema.define(version: 20140617021733) do
 
   add_index "schedules", ["thermostat_id"], name: "index_schedules_on_thermostat_id"
 
+  create_table "thermostat_models", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "thermostats", force: true do |t|
     t.string   "serial"
     t.integer  "temperature"
@@ -89,9 +105,11 @@ ActiveRecord::Schema.define(version: 20140617021733) do
     t.integer  "energy"
     t.integer  "location_id"
     t.integer  "default_temperature"
+    t.integer  "thermostatmodel_id"
   end
 
   add_index "thermostats", ["location_id"], name: "index_thermostats_on_location_id"
+  add_index "thermostats", ["thermostatmodel_id"], name: "index_thermostats_on_thermostatmodel_id"
   add_index "thermostats", ["user_id"], name: "index_thermostats_on_user_id"
 
   create_table "users", force: true do |t|

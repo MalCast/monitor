@@ -1,6 +1,16 @@
-<center><h1><b> Admin view</b></h1></center>  
+<center><h1><b> Admin view</b></h1></center> 
+
+<form action="/thermostat/search" method="get">
+
+
+          Escriba el modelo de termostatos que desea buscar:
+          <input tyoe="text" name="palabra" value ="" size="100">
+          <input type="submit" name="commit" value="Buscar">
+</form>
+
 <a href= "/users/create_user" class="btn btn-success"><b>Create User</b></a>
-<a href="<%= report_thermostat_path %> " class="btn btn-success active"><b>Report</b></a>
+<a href="<%= report_thermostat_path %> " class="btn btn-success active" ><b>Report</b></a>
+<a href="/thermostat_models" class="btn btn-danger"><b>ThermostatModels</b></a>
 <%= form_tag '/admi', :method => 'get' do %>
     <div class= "field">
       <h3 class = "tex-info"> <%= label_tag "Search"%></h3><br>

@@ -1,4 +1,10 @@
 ThermMonitor::Application.routes.draw do
+get '/observations/new/:id' => 'observations#new'
+  resources :observations
+
+get '/thermostat/search' => 'thermostat#show_search'
+get '/thermostat_models' => 'thermostat_models#index'
+  resources :thermostat_models
 
   resources :authentications
   devise_for :users, path_names: {sign_in: "login"},
